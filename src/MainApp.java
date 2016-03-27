@@ -1,12 +1,16 @@
 /**
  * Created by Notrelb on 27.03.2016.
  */
+import dao.PersonDAO;
+import dao.imp.PersonJDBC;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.Person;
 
 import java.io.IOException;
 
@@ -71,8 +75,17 @@ public class MainApp extends Application{
     }
 
     public static void main(String[] args) {
-         launch(args);
+        launch(args);
 
-        System.out.println("BBBBBBBBBBBB");
+      PersonDAO personDAO = new PersonJDBC();
+      // personDAO.insertPerson("Lindi","Nazimi","Doberllug","Vustrii");
+
+        //personDAO.deletePerson(1);
+
+         // personDAO.deletePerson("Florian","Pllana");
+
+        System.out.println(personDAO.getAllPersons().toString());
+        System.out.println("*********************************************");
+        System.out.println(personDAO.getPerson(43));
     }
 }
