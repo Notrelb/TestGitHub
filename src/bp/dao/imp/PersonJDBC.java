@@ -1,10 +1,10 @@
-package dao.imp;
+package bp.dao.imp;
 
-import dao.PersonDAO;
+import bp.dao.PersonDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Person;
-import util.ConnectionFactory;
+import bp.model.Person;
+import bp.util.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,6 +35,13 @@ public class PersonJDBC implements PersonDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Override
+    public void insertPerson(Person person) {
+        this.insertPerson(person.getFirstName(),
+                person.getLastName(),person.getStreet(),person.getCity());
 
     }
 

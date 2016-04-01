@@ -1,7 +1,7 @@
-package dao;
+package bp.dao;
 
 import javafx.collections.ObservableList;
-import model.Person;
+import bp.model.Person;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface PersonDAO {
     void insertPerson(String firstName,String lastName, String street, String city);
+    void insertPerson(Person person);
     void deletePerson(int uniqueID);
     void deletePerson(String firstName,String lastName);
     ObservableList<Person> getAllPersons();
